@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- Make it compatible to mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Detection</title>
+    <style>
+    .important {color: rgb(225, 50, 50);}
+    .relevant {color: rgb(1, 120, 32)}
+    .warning {color: Purple;}
+
+    .center {
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    body {
+      background-color: rgb(192, 192, 192);
+      font: 75% georgia, sans-serif;
+      line-height: 2;
+      font-size: 1.2em;
+    }
+    h1 {
+      font: arial, sans-serif;
+      font-size: 3.0em;
+    }
+
+    h2 { 
+      font: italic normal 1.4em georgia, sans-serif;
+      letter-spacing: 1px; 
+      margin-bottom: 0; 
+      color: #4C4556;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .row {
+      display: flex;
+    }
+    /* Create two equal columns that sits next to each other */
+    .column {
+      flex: 50%;
+      padding: 10px;
+    }
+    </style>
+</head>
+
+<body>
+  <div class="login">
+	  <h1 style="color: Blue; text-align: center;">At-Risk Depression Prediction Using Social Media Data</h1>
+    <h3 style="color: Blue; text-align: center; font-size: 1.5em; font-family: arial, sans-serif">An Application by Ishan Mysore</h3>
+    <!--
+    <img src="https://drive.google.com/thumbnail?id=15I6cjX-T_1scScwPyvVq_wxbjahSvYBI" width="229" alt="Depressed Person">
+    <img src="https://drive.google.com/thumbnail?id=1gTYVtf97GaVYzit4LKXQRvdr4B_uIDcg" width="229" alt="Depressed Person 2">
+    <img src="https://drive.google.com/thumbnail?id=1DzCPBRwINnawak149MMkGvjY0QUFAHqC" width="229" alt="Depressed Person 3">
+    <img src="https://drive.google.com/thumbnail?id=1A4Z9QWwOlRaoWFBHV1iWUNXFTfy4vjm5" width="229" alt="Depressed Person 4">
+    <img src="https://drive.google.com/thumbnail?id=1oqWsJBM8IloCwawQ_v_HkQjGic0I6L4K" width="229" alt="Depressed Person 5">
+    <img src="https://drive.google.com/thumbnail?id=1oLKPHu_Tp2YhkxjZ9uvTr0G3t-J6y4c1" width="229" alt="Depressed Person 6">
+    <img src="https://drive.google.com/thumbnail?id=1i_Xi09XK_zigV7Ou0sHgSrzNRo22UQaE" width="229" alt="Depressed Person 7">
+    -->
+
+    <div class="row">
+      <div class="column">
+        <h2>Introduction</h2>
+        <ul>
+          <li>In this digital age, the prevalence of <strong class=relevant>social media</strong> platforms in adolescents' lives is linked with a <strong class=warning>rise in depression.</strong></li>
+          <li>A study on American teens aged 12-15 found that those using social media for <strong class=relevant>over three hours daily</strong> faced <strong class=warning>twice the risk of negative mental health outcomes</strong>, especially depression.</li>
+          <li>The risk of depression <strong class=warning>increases by 13%</strong> for each <strong class=relevant>hour increase in social media use</strong> in adolescents.</li>
+          <li><strong class=relevant>Media influence and gender norms</strong> can worsen the discrepancy between an adolescent's actual experiences and their perceived notions for the future, causing the adolescent to have an <strong class=warning>inadequate perception of themself.</strong></li>
+        </ul>
+      </div>
+      <div class="column">
+        <h2>How This Application Can Help</h2>
+        <ul>
+          <li>This application will analyze your Twitter (X) or Instagram social media account.</li>
+          <li>Using a machine learning model that's been trained on 350,000+ depressed and nondepressed social media posts, the application will assess the frequency of posts in your account that contain elements of depression.</li>
+          <li>Based on this assessment, the application will predict if you are <em><strong class=important>at risk for depression.</strong></em></li>
+          <li>If necessary, the application will lead you to some resources or suggest that you seek an actual diagnosis from a mental health professional.</li>
+          <li>Failure to address depression during the <strong class=relevant>adolescent stages</strong> may result in more <strong class=warning>severe consequences toward adulthood</strong>, impairing both physical and mental health and limiting adults from achieving their full potential.</li>
+        </ul>
+      </div>
+    </div>
+    <h3 style="text-align: center;"><strong>This application should never be used as a substitute for professional medical evaluation or treatment. The predictions made by this model are probabilistic and should be used only to highlight the need for a more thorough evaluation by a healthcare provider.</strong></h3>
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+    <form action="{{ url_for('predict')}}" style="text-align:center" method="post">
+      <label style="font-size:1.4em" for="Type">Select a platform:</label>
+      <select style="height:30px;" name="Type"> id="Type">
+        <option value="twitter">Twitter (X)</option>
+        <option value="instagram">Instagram</option>
+      </select>
+      <br>
+      <label style="font-size:1.4em; text-align: center;" for="Handle">Enter your handle here:</label>
+      <input style="height:30px;" type="text" size="20" name="Handle" required="required" /><br>
+      <p class=important style="text-align: center;">Make sure your account is <strong>PUBLIC!</strong></p>
+      <p style="text-align: center;">(If using Instagram, please allow a minute before your prediction arrives.)<p>
+      <h1 style="color:Maroon; text-align: center;">Are you at risk for depression?</h1>
+      <div class="container">
+        <div class="center">
+          <button style="height:50px; width:375px; font-size:1.5em;" type="submit" class="btn btn-primary btn-block btn-large">Click here to find out.</button></p>
+        </div>
+      </div>
+    </form>
+    <br>
+    <br>
+   <h2 style="color:Purple; text-align: center;"> {{ prediction_text }}</h2>
+
+ </div>
+</body>
+</html>

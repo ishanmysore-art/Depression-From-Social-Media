@@ -1,0 +1,13 @@
+numpy==1.26.4
+pandas==2.2.2
+flask==3.0.3
+pickle4
+scikit-learn==1.5.1
+twikit==2.1.0
+instaloader==4.12
+pytesseract==0.3.10
+keras==3.5.0
+tensorflow==2.17.0
+requests
+gunicorn
+bayesian-optimization==1.5.1
