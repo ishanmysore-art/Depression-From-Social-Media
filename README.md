@@ -3,8 +3,6 @@
 ## 📖 Overview
 This project introduces a machine learning-driven predictive model designed to analyze social media activity and detect early indicators of depression in adolescents. By analyzing a user's recent posts on platforms like Twitter and Instagram, the tool evaluates linguistic markers to determine an overall depression risk level. It aims to bridge AI technology with digital support systems by suggesting relevant mental health resources and encouraging professional diagnosis when appropriate. 
 
-The model was developed for integration with **Scout**, Sutter Health's teen-focused mental wellness app, to facilitate faster intervention and empower at-risk teens to access help sooner.
-
 ## ✨ Features
 - **📱 Multi-Platform Scraping**: Automatically scrapes a user's 100 most recent posts from Twitter (X) or Instagram using their public handle.
 - **📝 Advanced Text Preprocessing**: Cleans data by removing URLs, HTML tags, and punctuation, while normalizing chat abbreviations and converting emojis to textual representations. Optical Character Recognition (OCR) is used to extract text from Instagram images.
